@@ -222,6 +222,7 @@
               </figure>
             </div> <!-- col end.// -->
     
+            {% for product in products %}
             <div class="col-lg-4 col-md-6 col-sm-6">
               <figure class="card card-product-grid">
                 <div class="img-wrap"> 
@@ -229,15 +230,16 @@
                 </div>
                 <figcaption class="info-wrap border-top">
                   <div class="price-wrap">
-                    <strong class="price">$120.00</strong>
+                    <strong class="price">TK {{ product.price  }} </strong>
                   </div> <!-- price-wrap.// -->
-                  <p class="title mb-2">Winter Jacket for Men and Women, All sizes</p>
+                  <p class="title mb-2"> {{ product.name }} </p>
                   
                   <a href="#" class="btn btn-primary">Add to cart</a>
                   <a href="#" class="btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                 </figcaption>
               </figure>
             </div> <!-- col end.// -->
+            {% endfor %}
     
             <div class="col-lg-4 col-md-6 col-sm-6">
               <figure class="card card-product-grid">

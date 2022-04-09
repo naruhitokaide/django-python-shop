@@ -27,3 +27,6 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return self.name
+    
