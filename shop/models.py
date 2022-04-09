@@ -21,8 +21,9 @@ class Brand(models.Model):
     
         
         
-# class Product(models.Model):
-#     name = models.CharField(max_length=200)
-#     price = models.FloatField()
-#     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-#     brand_name = models.ForeignKey()
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    price = models.FloatField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
+    
