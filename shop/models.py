@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.db import models
 
 class Category(models.Model):
@@ -24,6 +23,7 @@ class Brand(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     price = models.FloatField()
+    discount = models.FloatField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand_name = models.ForeignKey(Brand, on_delete=models.CASCADE)
     
