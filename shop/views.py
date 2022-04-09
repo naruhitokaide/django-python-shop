@@ -1,4 +1,4 @@
-from . models import Category
+from . models import Brand, Category
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -10,6 +10,7 @@ def home(request):
 def product_list(request):
 
     context = {
-        'categories': Category.objects.all()
+        'categories': Category.objects.all(),
+        'brands': Brand.objects.all(),
     }
     return render(request, 'productList.html', context)

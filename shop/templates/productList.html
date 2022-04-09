@@ -50,41 +50,13 @@
         </header>
         <div class="collapse show" id="collapse_aside_brands">
           <div class="card-body">
+            {% for brand in brands %}
               <label class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" value="" checked>
-                <span class="form-check-label"> Mercedes </span>
+                <input class="form-check-input" type="checkbox" value="" >
+                <span class="form-check-label"> {{ brand.name }} </span>
                 <b class="badge rounded-pill bg-gray-dark float-end">120</b>
               </label> <!-- form-check end.// -->
-    
-              <label class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" value="" checked>
-                <span class="form-check-label"> Toyota </span>
-                <b class="badge rounded-pill bg-gray-dark float-end">15</b>
-              </label> <!-- form-check end.// -->
-    
-              <label class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" value="" checked>
-                <span class="form-check-label"> Mitsubishi </span>
-                <b class="badge rounded-pill bg-gray-dark float-end">35</b>
-              </label> <!-- form-check end.// -->
-    
-              <label class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" value="" checked>
-                <span class="form-check-label"> Nissan </span>
-                <b class="badge rounded-pill bg-gray-dark float-end">89</b>
-              </label> <!-- form-check end.// -->
-    
-              <label class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label"> Honda </span>
-                <b class="badge rounded-pill bg-gray-dark float-end">30</b>
-              </label> <!-- form-check end.// -->
-    
-              <label class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" value="">
-                <span class="form-check-label"> Honda accord </span>
-                <b class="badge rounded-pill bg-gray-dark float-end">30</b>
-              </label> <!-- form-check end.// -->
+            {% endfor %}
           </div> <!-- card-body .// -->
         </div> <!-- collapse.// -->
       </article>
