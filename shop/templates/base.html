@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Type some info">
+  <meta name="author" content="Type name">
+
+  <title>Django Shop </title>
+
+  <!-- Bootstrap css -->
+  <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+
+  <!-- Custom css -->
+  <link href="{% static '/css/ui.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static '/css/responsive.css' %}" rel="stylesheet" type="text/css" />
+
+  <!-- Font awesome 5 -->
+  <link href="{% static '/css/fontawesome.css' %}" type="text/css" rel="stylesheet">
+
+</head>
+<body class="bg-light">
+
+<header class="section-header">	
+	<section class="header-main bg-white">
+		<div class="container">
+			<div class="row gy-3 align-items-center">
+				<div class="col-lg-2 col-sm-4 col-4">
+					<a href="http://bootstrap-ecommerce.com" class="navbar-brand">
+						<img class="logo" height="40" src="images/logo.svg">
+					</a> <!-- brand end.// -->
+				</div>
+				<div class="order-lg-last col-lg-5 col-sm-8 col-8">
+					<div class="float-end">
+						<a href="#" class="btn btn-light"> 
+						    <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">Sign in  </span> 
+						</a>
+						<a href="#" class="btn btn-light"> 
+							<i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>   
+						</a>
+						<a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light"> 
+							<i class="fa fa-shopping-cart"></i> <span class="ms-1">My cart </span> 
+						</a>
+			        </div>
+				</div> <!-- col end.// -->
+				<div class="col-lg-5 col-md-12 col-12">
+					<form action="#" class="">
+		              <div class="input-group">
+		                <input type="search" class="form-control" style="width:55%" placeholder="Search">
+		                <select class="form-select">
+		                  <option value="">All type</option>
+		                  <option value="codex">Special</option>
+		                  <option value="comments">Only best</option>
+		                  <option value="content">Latest</option>
+		                </select>
+		                <button class="btn btn-primary">
+		                  <i class="fa fa-search"></i> 
+		                </button>
+		              </div> <!-- input-group end.// -->
+		            </form>
+				</div> <!-- col end.// -->
+				
+			</div> <!-- row end.// -->
+		</div> <!-- container end.// -->
+	</section> <!-- header-main end.// -->
+
+	{% block navbar %}{% endblock navbar %}
+
+</header> <!-- section-header end.// -->
+
+
+{% block content %}{% endblock content %}
+
+
+
+<footer class="section-footer bg-primary footer-dark">
+<div class="container">
+  <section class="footer-main padding-y">
+    <div class="row">
+      <aside class="col-12 col-sm-12 col-lg-3">
+        <article class="me-lg-4">
+          <img src="images/logo-white.png" class="logo-footer">
+          <p class="mt-3"> © 2018- 2021 Templatemount. <br> All rights reserved. </p>
+        </article>
+      </aside>
+      <aside class="col-6 col-sm-4 col-lg-2">
+        <h6 class="title">Store</h6>
+        <ul class="list-menu">
+          <li> <a href="#">About us</a></li>
+          <li> <a href="#">Find store</a></li>
+          <li> <a href="#">Categories</a></li>
+          <li> <a href="#">Blogs</a></li>
+        </ul>
+      </aside>
+      <aside class="col-6 col-sm-4 col-lg-2">
+        <h6 class="title">Information</h6>
+        <ul class="list-menu">
+          <li> <a href="#">Help center</a></li>
+          <li> <a href="#">Money refund</a></li>
+          <li> <a href="#">Shipping info</a></li>
+          <li> <a href="#">Refunds</a></li>
+        </ul>
+      </aside>
+      <aside class="col-6 col-sm-4  col-lg-2">
+        <h6 class="title">Support</h6>
+        <ul class="list-menu">
+          <li> <a href="#"> Help center </a></li>
+          <li> <a href="#"> Documents </a></li>
+          <li> <a href="#"> Account restore </a></li>
+          <li> <a href="#"> My Orders </a></li>
+        </ul>
+      </aside>
+      <aside class="col-12 col-sm-12 col-lg-3">
+        <h6 class="title">Newsletter</h6>
+        <p>Stay in touch with latest updates about our products and offers </p>
+
+        <form class="mb-3">
+          <div class="input-group">
+            <input class="form-control" type="text" placeholder="Email">
+            <button class="btn btn-light" type="submit">
+              Join
+            </button>
+          </div> <!-- input-group.// -->
+        </form>
+      </aside>
+    </div> <!-- row.// -->
+  </section>  <!-- footer-top.// -->
+  <hr class="my-0">
+  <section class="footer-bottom d-flex justify-content-lg-between">
+    <div>
+      <i class="fab fa-lg fa-cc-visa"></i>
+      <i class="fab fa-lg fa-cc-amex"></i>
+      <i class="fab fa-lg fa-cc-mastercard"></i>
+      <i class="fab fa-lg fa-cc-paypal"></i>
+    </div>
+    <nav class="dropup">
+        <button class="dropdown-toggle btn text-white d-flex align-items-center py-0" type="button" data-bs-toggle="dropdown">
+          <img src="images/flags/flag-usa.png" class="me-2" height="20"> 
+          <span>English</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="#">Russian</a></li>
+          <li><a class="dropdown-item" href="#">Arabic</a></li>
+          <li><a class="dropdown-item" href="#">Spanish</a></li>
+        </ul>
+    </nav>
+    
+  </section>
+</div> <!-- container end.// -->
+</footer>
+
+
+<!-- Bootstrap js -->
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom js -->
+<script src="js/script.js?v=2.0"></script>
+
+</body>
+</html>
