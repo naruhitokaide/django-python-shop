@@ -7,7 +7,8 @@ from django.http import HttpResponse
 def home(request):
     context = {
         'categories': Category.objects.all(),
-        'products': Paginator(Product.objects.all(), 8).page(1)
+        # 'products': Paginator(Product.objects.all(), 8).page(1)
+        'products': Product.objects.all()[:8]
     }
     return render(request, 'home.html', context)
 
