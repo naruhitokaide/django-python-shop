@@ -27,9 +27,10 @@
 		<div class="container">
 			<div class="row gy-3 align-items-center">
 				<div class="col-lg-2 col-sm-4 col-4">
-					<a href="http://bootstrap-ecommerce.com" class="navbar-brand">
+					{% comment %} <a href="http://bootstrap-ecommerce.com" class="navbar-brand">
 						<img class="logo" height="40" src="images/logo.svg">
-					</a> <!-- brand end.// -->
+					</a> <!-- brand end.// --> {% endcomment %}
+          <a href="{% url 'home' %}"><strong>Django Shop</strong></a>
 				</div>
 				<div class="order-lg-last col-lg-5 col-sm-8 col-8">
 					<div class="float-end">

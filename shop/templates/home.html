@@ -10,15 +10,13 @@
 		<div class="row">
 			<aside class="col-lg-3"> 
 				<nav class="nav flex-column nav-pills">
-				  <a class="nav-link active" aria-current="page" href="#">Electronics</a>
-				  <a class="nav-link" href="#">Clothes and wear</a>
-				  <a class="nav-link" href="#">Home interiors</a>
-				  <a class="nav-link" href="#">Computer and tech</a>
-				  <a class="nav-link" href="#">Tools, equipments</a>
-				  <a class="nav-link" href="#">Sports and outdoor</a>
-				  <a class="nav-link" href="#">Animal and pets</a>
-				  <a class="nav-link" href="#">Machinery tools</a>
-				  <a class="nav-link" href="#">Other products</a>
+				  	{% for category in categories %}
+					  	{% if forloop.counter == 1 %}
+						  <a class="nav-link active" aria-current="page" href="#">Electronics</a>
+						{% else %}
+						  <a class="nav-link" href="#"> {{ category.name }} </a>
+						{% endif %}
+				  	{% endfor %}
 				</nav>
 			</aside>
 			<div class="col-lg-9">
@@ -46,6 +44,7 @@
 	</header> 
 
 	<div class="row">
+		{% for product in products %}
 		<div class="col-lg-3 col-md-6 col-sm-6">
 			<figure class="card card-product-grid">
 				<a href="#" class="img-wrap"> 
@@ -54,112 +53,20 @@
 				</a>
 				<figcaption class="info-wrap border-top">
 					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Blue T-shirt for Men</a>
+					<a href="#" class="title text-truncate"> {{ product.name }} </a>
+					{% if product.category.name == 'Clothes and Wears' %} 
 					<small class="text-muted">Sizes: S, M, XL</small>
+					{% else %}
+					<br>
+					{% endif %}
 					<div class="price-wrap">
 						<span class="price">$15.90</span> <del class="price-old">$20</del>
 					</div> <!-- price-wrap.// -->
 				</figcaption>
 			</figure>
 		</div> <!-- col end.// -->
+		{% endfor %}
 
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/11.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Warm Winter Jacket</a>
-					<small class="text-muted">Sizes: S, M, XL</small>
-					<div class="price">$72.90</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
-
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/10.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Mens T-shirt Cotton Base</a>
-					<small class="text-muted">Blue, White, Black</small>
-					<div class="price">$29.98</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
-
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/9.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Men's Denim Shorts Jeans</a>
-					<small class="text-muted">Blue, White, Black</small>
-					<div class="price">$75.50</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
-
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/5.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Apple Watch Series 1 Sport Case 38mm Black</a>
-					<small class="text-muted">5GB, 10GB, 24GB</small>
-					<div class="price">$75.50</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
-
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/6.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Gaming Headset 32db Blackbuilt in mic</a>
-					<small class="text-muted">Black, Blue, Green</small>
-					<div class="price">$99.50</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
-
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/7.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Gaming Headset 32db Blackbuilt in mic</a>
-					<small class="text-muted">Sizes: S, M, XL</small>
-					<div class="price">$41.50</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
-
-		<div class="col-lg-3 col-md-6 col-sm-6">
-			<figure class="card card-product-grid">
-				<a href="#" class="img-wrap"> 
-					<img src="images/items/8.jpg"> 
-				</a>
-				<figcaption class="info-wrap border-top">
-					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-					<a href="#" class="title text-truncate">Slim fit T-shirt for men</a>
-					<small class="text-muted">Sizes: S, M, XL</small>
-					<div class="price">$75.50</div> <!-- price-wrap.// -->
-				</figcaption>
-			</figure>
-		</div> <!-- col end.// -->
 	</div> <!-- row end.// -->
 
 </div> <!-- container end.// -->

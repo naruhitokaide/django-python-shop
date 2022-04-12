@@ -1,10 +1,15 @@
 from . models import Brand, Category, Product
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, 'home.html', {'name':'Wazed'})
+    context = {
+        'categories': Category.objects.all(),
+        'products': Paginator(Product.objects.all(), 8).page(1)
+    }
+    return render(request, 'home.html', context)
 
 
 def product_list(request):
