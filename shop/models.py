@@ -1,3 +1,5 @@
+from distutils.command.upload import upload
+from itertools import product
 from django.db import models
 
 class Category(models.Model):
@@ -30,3 +32,10 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
+
+class Image(models.Model):
+    image = models.ImageField(upload_to = 'asset/products')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"{self.product}"
