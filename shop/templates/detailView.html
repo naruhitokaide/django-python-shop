@@ -20,25 +20,17 @@
       <article class="gallery-wrap"> 
         <div class="img-big-wrap img-thumbnail">
            <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big.jpg"> 
-              <img height="560" src="images/items/detail1/big.jpg"> 
+              <img height="560" src=" {{ product.images.all.0.image.url }} "> 
            </a>
         </div> <!-- img-big-wrap.// -->
         <div class="thumbs-wrap">
+          
+          {% for productImage in product.images.all %}
           <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big1.jpg" class="item-thumb"> 
-            <img width="60" height="60" src="images/items/detail1/thumb1.jpg"> 
+            <img width="60" height="60" src=" {{ productImage.image.url }} "> 
           </a>
-          <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big2.jpg" class="item-thumb"> 
-            <img width="60" height="60" src="images/items/detail1/thumb2.jpg">  
-          </a>
-          <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big3.jpg" class="item-thumb"> 
-            <img width="60" height="60" src="images/items/detail1/thumb3.jpg">  
-          </a>
-          <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big4.jpg" class="item-thumb"> 
-            <img width="60" height="60" src="images/items/detail1/thumb4.jpg">  
-          </a>
-          <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big.jpg" class="item-thumb"> 
-            <img width="60" height="60" src="images/items/detail1/thumb.jpg">  
-          </a>
+          {% endfor %}
+          
         </div> <!-- thumbs-wrap.// -->
       </article> <!-- gallery-wrap .end// -->
     </aside>
@@ -212,7 +204,7 @@
             {% for product in similar %}
             <article class="itemside mb-3">
               <a href="#" class="aside">
-                <img src="images/items/8.jpg" width="96" height="96" class="img-md img-thumbnail">
+                <img src="{{product.images.all.0.image.url}}" width="96" height="96" class="img-md img-thumbnail">
               </a>
               <div class="info">
                 <a href="#" class="title mb-1"> {{ product.name }} </a>
