@@ -209,7 +209,10 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
               <figure class="card card-product-grid">
                 <div class="img-wrap"> 
-                  <img src="images/items/11.jpg"> 
+                  {% for product in product.images.all %}
+                    <img src=" {{ product.image.url }} "> 
+                  {% endfor %}
+                  
                 </div>
                 <figcaption class="info-wrap border-top">
                   <div class="price-wrap">

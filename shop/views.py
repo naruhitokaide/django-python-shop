@@ -31,6 +31,7 @@ def productdetail(request, id):
         'product':product,
         'similar' : Product.objects.filter(category = product.category) 
     }
+    print(product.images.all())
     return render(request, 'detailVIew.html', context)
     
     
