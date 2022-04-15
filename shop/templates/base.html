@@ -34,9 +34,15 @@
 				</div>
 				<div class="order-lg-last col-lg-5 col-sm-8 col-8">
 					<div class="float-end">
-						<a href="#" class="btn btn-light"> 
-						    <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">Sign in  </span> 
-						</a>
+						{% if user.is_authenticated %}
+            <a href="#" class="btn btn-light"> 
+              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> {{ user.username }}  </span> 
+            </a>
+            {% else %}
+            <a href="{% url 'sign-up' %}" class="btn btn-light"> 
+              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">Sign Up  </span> 
+             </a>
+            {% endif %}
 						<a href="#" class="btn btn-light"> 
 							<i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>   
 						</a>
