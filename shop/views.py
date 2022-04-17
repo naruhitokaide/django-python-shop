@@ -1,4 +1,3 @@
-from unicodedata import category
 from . models import Brand, Category, Product
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
