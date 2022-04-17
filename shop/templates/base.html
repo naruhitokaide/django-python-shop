@@ -38,6 +38,9 @@
             <a href="#" class="btn btn-light"> 
               <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> {{ user.username }}  </span> 
             </a>
+            <a href="{% url 'logout' %}" class="btn btn-light"> 
+              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> Logout  </span> 
+            </a>
             {% else %}
             <a href="{% url 'sign-up' %}" class="btn btn-light"> 
               <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">Sign Up  </span> 
