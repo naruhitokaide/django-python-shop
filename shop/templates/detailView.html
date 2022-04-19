@@ -19,14 +19,14 @@
     <aside class="col-lg-6">
       <article class="gallery-wrap"> 
         <div class="img-big-wrap img-thumbnail">
-           <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big.jpg"> 
+           <a data-fslightbox="mygalley" data-type="image" href="{{ product.images.all.0.image.url }}"> 
               <img height="560" src=" {{ product.images.all.0.image.url }} "> 
            </a>
         </div> <!-- img-big-wrap.// -->
         <div class="thumbs-wrap">
           
           {% for productImage in product.images.all %}
-          <a data-fslightbox="mygalley" data-type="image" href="images/items/detail1/big1.jpg" class="item-thumb"> 
+          <a data-fslightbox="mygalley" data-type="image" href=" {{ productImage.image.url }} " class="item-thumb"> 
             <img width="60" height="60" src=" {{ productImage.image.url }} "> 
           </a>
           {% endfor %}
@@ -36,6 +36,8 @@
     </aside>
     <main class="col-lg-6">
       <article class="ps-lg-3">
+        <form action="{% url 'add-to-cart' product.id %}" method="post">
+          {% csrf_token %}
         <h4 class="title text-dark"> {{ product.name }} </h4>
         <div class="rating-wrap my-3">
           <ul class="rating-stars">
@@ -88,7 +90,7 @@
                     <path d="M19 13H5v-2h14v2z"></path>
                   </svg>
               </button>
-              <input class="form-control text-center" placeholder="" value="14">
+              <input name = "quantity" class="form-control text-center" placeholder="" value="14">
               <button class="btn btn-icon btn-light" type="button"> 
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
@@ -99,9 +101,9 @@
         </div> <!-- row.// -->
     
         <a href="#" class="btn  btn-warning"> Buy now </a>
-        <a href="#" class="btn  btn-primary"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
+        <button class = "btn btn-success" type="submit">Add To Cart</button>
         <a href="#" class="btn  btn-light"> <i class="me-1 fa fa-heart"></i> Save </a>
-      
+      </form>
       </article> <!-- product-info-aside .// -->
     </main> <!-- col.// -->
     </div> <!-- row.// -->
