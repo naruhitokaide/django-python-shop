@@ -8,7 +8,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('user', include('users.urls')),
     path('', include('shop.urls')),
-    path('', include('order.urls')),
+    path('order/', include('order.urls')),
 ]
 
 
