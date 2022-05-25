@@ -9,12 +9,13 @@ def cart(request, id):
     if request.POST:
         product = Product.objects.get(id = id)
         cart = Cart.objects.filter(device = request.COOKIES['device'], product = product)
+        request.session['product_id'] = product
         if cart.exists():
             return HttpResponse("Product Already In Cart")
         else:
             Cart(
-                product = product, 
-                quantity = request.POST['quantity'], 
+                product = product,
+                quantity = request.POST['quantity'],
                 device = request.COOKIES['device']
                 ).save()
             print("Product Added")
