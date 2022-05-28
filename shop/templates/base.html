@@ -18,47 +18,10 @@
 
   <!-- Font awesome 5 -->
   <link href="{% static '/css/fontawesome.css' %}" type="text/css" rel="stylesheet">
-
-
-  <script type="text/javascript">
-
-    function getCookie(name) {
-      let cookieValue = null;
-      if (document.cookie && document.cookie !== '') {
-          const cookies = document.cookie.split(';');
-          for (let i = 0; i < cookies.length; i++) {
-              const cookie = cookies[i].trim();
-              // Does this cookie string begin with the name we want?
-              if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                  break;
-              }
-          }
-      }
-      return cookieValue;
-    }
-
-
-
-    function uuidv4() {
-		  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-		    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-		    return v.toString(16);
-		  });
-		}
-
-    let device = getCookie('device')
-    if(device == null || device == undefined){
-      device = uuidv4()
-    }
-    document.cookie = "device = " + device + ";domain=;path=/"
-
-  </script>
-
 </head>
 <body class="bg-light">
 
-<header class="section-header">	
+<header class="section-header">
 	<section class="header-main bg-white">
 		<div class="container">
 			<div class="row gy-3 align-items-center">
@@ -71,22 +34,22 @@
 				<div class="order-lg-last col-lg-5 col-sm-8 col-8">
 					<div class="float-end">
 						{% if user.is_authenticated %}
-            <a href="#" class="btn btn-light"> 
-              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> {{ user.username }}  </span> 
+            <a href="#" class="btn btn-light">
+              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> {{ user.username }}  </span>
             </a>
-            <a href="{% url 'logout' %}" class="btn btn-light"> 
-              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> Logout  </span> 
+            <a href="{% url 'logout' %}" class="btn btn-light">
+              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block"> Logout  </span>
             </a>
             {% else %}
-            <a href="{% url 'sign-up' %}" class="btn btn-light"> 
-              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">Sign Up  </span> 
+            <a href="{% url 'sign-up' %}" class="btn btn-light">
+              <i class="fa fa-user"></i>  <span class="ms-1 d-none d-sm-inline-block">Sign Up  </span>
              </a>
             {% endif %}
-						<a href="#" class="btn btn-light"> 
-							<i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>   
+						<a href="#" class="btn btn-light">
+							<i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>
 						</a>
-						<a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light"> 
-							<i class="fa fa-shopping-cart"></i> <span class="ms-1">My cart </span> 
+						<a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light">
+							<i class="fa fa-shopping-cart"></i> <span class="ms-1">My cart ({{ cart }}) </span>
 						</a>
 			        </div>
 				</div> <!-- col end.// -->
@@ -101,12 +64,12 @@
 		                  <option value="content">Latest</option>
 		                </select>
 		                <button class="btn btn-primary">
-		                  <i class="fa fa-search"></i> 
+		                  <i class="fa fa-search"></i>
 		                </button>
 		              </div> <!-- input-group end.// -->
 		            </form>
 				</div> <!-- col end.// -->
-				
+
 			</div> <!-- row end.// -->
 		</div> <!-- container end.// -->
 	</section> <!-- header-main end.// -->
@@ -182,7 +145,7 @@
     </div>
     <nav class="dropup">
         <button class="dropdown-toggle btn text-white d-flex align-items-center py-0" type="button" data-bs-toggle="dropdown">
-          <img src="images/flags/flag-usa.png" class="me-2" height="20"> 
+          <img src="images/flags/flag-usa.png" class="me-2" height="20">
           <span>English</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
@@ -191,7 +154,7 @@
           <li><a class="dropdown-item" href="#">Spanish</a></li>
         </ul>
     </nav>
-    
+
   </section>
 </div> <!-- container end.// -->
 </footer>
