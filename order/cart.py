@@ -1,5 +1,3 @@
-
-
 class Cart():
 
     def __init__(self, request):
@@ -9,4 +7,10 @@ class Cart():
             cart = self.session['s_key'] = {}
         self.cart = cart
 
+    def add(self, product):
+        product_id = product.id
 
+        if product_id not in self.cart:
+            self.cart[product_id] = {'price':product.price}
+
+        self.session.modified = True

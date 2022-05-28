@@ -1,16 +1,17 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
+from django.contrib.sessions.models import Session
 
-from .models import Cart
+
+from order.cart import Cart
 from shop.models import Product
-from .cart import Cart
 
-def cart(request, id):
-    if request.POST:
-        product = Product.objects.get(id = id)
-        request.session[str(product.id)] = product.id
-        cart = Cart(request = request)
-
-        print(len(request.session['s_key']))
-    return HttpResponse(request.session.items())
+def cart(request):
+    cart = Cart(request)
+    if request.POST.get('action') == 'post':
+        productid = int(request.POST.get('productid'))
+        product = get_object_or_404(Product, id = productid)
+        cart.add(product)
+        s = Session.objects.get(pk = 'dgv0atfmvudpc23o3khfm560rahf9rmf')
+        print(s.get_decoded())
+        return JsonResponse({'data':'product sent to cart.py'})

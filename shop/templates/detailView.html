@@ -2,42 +2,40 @@
 {% block content %}
 <section class="bg-primary padding-y-sm">
     <div class="container">
-    
+
       <ol class="breadcrumb ondark mb-0">
         <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
         <li class="breadcrumb-item"><a href="#">{{product.category.name}}</a></li>
         <li class="breadcrumb-item active" aria-current="page"> {{ product.name }} </li>
       </ol>
-    
+
     </div> <!-- container //  -->
 </section>
 
 <section class="padding-y">
     <div class="container">
-    
+
     <div class="row">
     <aside class="col-lg-6">
-      <article class="gallery-wrap"> 
+      <article class="gallery-wrap">
         <div class="img-big-wrap img-thumbnail">
-           <a data-fslightbox="mygalley" data-type="image" href="{{ product.images.all.0.image.url }}"> 
-              <img height="560" src=" {{ product.images.all.0.image.url }} "> 
+           <a data-fslightbox="mygalley" data-type="image" href="{{ product.images.all.0.image.url }}">
+              <img height="560" src=" {{ product.images.all.0.image.url }} ">
            </a>
         </div> <!-- img-big-wrap.// -->
         <div class="thumbs-wrap">
-          
+
           {% for productImage in product.images.all %}
-          <a data-fslightbox="mygalley" data-type="image" href=" {{ productImage.image.url }} " class="item-thumb"> 
-            <img width="60" height="60" src=" {{ productImage.image.url }} "> 
+          <a data-fslightbox="mygalley" data-type="image" href=" {{ productImage.image.url }} " class="item-thumb">
+            <img width="60" height="60" src=" {{ productImage.image.url }} ">
           </a>
           {% endfor %}
-          
+
         </div> <!-- thumbs-wrap.// -->
       </article> <!-- gallery-wrap .end// -->
     </aside>
     <main class="col-lg-6">
       <article class="ps-lg-3">
-        <form action="{% url 'add-to-cart' product.id %}" method="post">
-          {% csrf_token %}
         <h4 class="title text-dark"> {{ product.name }} </h4>
         <div class="rating-wrap my-3">
           <ul class="rating-stars">
@@ -45,34 +43,34 @@
             <li> ⭐ </li>
           </ul>
           <b class="label-rating text-warning"> 4.5</b>
-           . 
+           .
           <span class="label-rating text-muted"> <i class="fa-solid fa-cart-circle-check"></i> 154 orders </span>
-           . 
+           .
           <span class="label-rating text-success">In stock</span>
         </div> <!-- rating-wrap.// -->
-    
-        <div class="mb-3"> 
-          <var class="price h5">TK {{product.price}}</var> 
-        </div> 
-    
+
+        <div class="mb-3">
+          <var class="price h5">TK {{product.price}}</var>
+        </div>
+
         <p>Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for men.</p>
-    
+
         <dl class="row">
           <dt class="col-3">Type:</dt>
           <dd class="col-9">Regular</dd>
-    
+
           <dt class="col-3">Color</dt>
           <dd class="col-9">Brown</dd>
-    
+
           <dt class="col-3">Material</dt>
           <dd class="col-9">Cotton, Jeans </dd>
-    
+
           <dt class="col-3">Brand</dt>
           <dd class="col-9">Reebook </dd>
         </dl>
-    
+
         <hr>
-    
+
         <div class="row mb-4">
           <div class="col-md-4 col-6 mb-2">
             <label class="form-label">Size</label>
@@ -85,13 +83,13 @@
           <div class="col-md-4 col-6 mb-3">
             <label class="form-label d-block">Quantity</label>
             <div class="input-group input-spinner">
-              <button class="btn btn-icon btn-light" type="button"> 
+              <button class="btn btn-icon btn-light" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
                     <path d="M19 13H5v-2h14v2z"></path>
                   </svg>
               </button>
               <input name = "quantity" class="form-control text-center" placeholder="" value="14">
-              <button class="btn btn-icon btn-light" type="button"> 
+              <button class="btn btn-icon btn-light" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#999" viewBox="0 0 24 24">
                     <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
                   </svg>
@@ -99,15 +97,15 @@
             </div> <!-- input-group.// -->
           </div> <!-- col.// -->
         </div> <!-- row.// -->
-    
+
         <a href="#" class="btn  btn-warning"> Buy now </a>
-        <button class = "btn btn-success" type="submit">Add To Cart</button>
+        <button class = "btn btn-success" type="submit" id="add-button" value="{{ product.id }}">Add To Cart</button>
         <a href="#" class="btn  btn-light"> <i class="me-1 fa fa-heart"></i> Save </a>
-      </form>
+
       </article> <!-- product-info-aside .// -->
     </main> <!-- col.// -->
     </div> <!-- row.// -->
-    
+
     </div> <!-- container .//  -->
 </section>
 
@@ -195,14 +193,14 @@
       </article>
       </div>
     </div>
-    <!-- =================== COMPONENT SPECS .// ================== -->   
+    <!-- =================== COMPONENT SPECS .// ================== -->
       </div> <!-- col.// -->
       <aside class="col-lg-4">
     <!-- =================== COMPONENT ADDINGS ====================== -->
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Similar items</h5>
-             
+
             {% for product in similar %}
             <article class="itemside mb-3">
               <a href="#" class="aside">
@@ -215,17 +213,33 @@
               </div>
             </article>
             {% endfor %}
-    
+
           </div> <!-- card-body .// -->
         </div> <!-- card .// -->
-    <!-- =================== COMPONENT ADDINGS .// ================== --> 
+    <!-- =================== COMPONENT ADDINGS .// ================== -->
       </aside> <!-- col.// -->
     </div>
-    
+
     <br><br>
-    
+
     </div><!-- container // -->
 </section>
+
+<script>
+  $(document).on('click', '#add-button', function (e) {
+      e.preventDefault();
+      $.ajax({
+          type: 'POST',
+          url: "{% url 'basket_add' %}",
+          data: {
+            productid: $('#add-button').val(),
+            productqty: $('#select option:selected').text(),
+            csrfmiddlewaretoken: "{{csrf_token}}",
+            action: 'post'
+        },
+      })
+  })
+</script>
 
 {% endblock content %}
 
