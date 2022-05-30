@@ -7,10 +7,8 @@ class Cart():
             cart = self.session['s_key'] = {}
         self.cart = cart
 
-    def add(self, product):
+    def add(self, product, product_qty):
         product_id = product.id
-
-        if product_id not in self.cart:
-            self.cart[product_id] = {'price':product.price}
-
+        if str(product_id) not in self.cart:
+            self.cart[product_id] = {'price':product.price, 'qty': product_qty, 'sub_total': product_qty * product.price}
         self.session.modified = True
