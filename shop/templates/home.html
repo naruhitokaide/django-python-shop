@@ -8,7 +8,7 @@
 	<div class="container">
 	<main class="card p-3">
 		<div class="row">
-			<aside class="col-lg-3"> 
+			<aside class="col-lg-3">
 				<nav class="nav flex-column nav-pills">
 				  	{% for category in categories %}
 					  	{% if forloop.counter == 1 %}
@@ -41,20 +41,20 @@
 
 	<header class="section-heading">
 		<h3 class="section-title">New products</h3>
-	</header> 
+	</header>
 
 	<div class="row">
 		{% for product in products %}
 		<div class="col-lg-3 col-md-6 col-sm-6">
 			<figure class="card card-product-grid">
-				<a href="{% url 'productDetail' product.id %}" class="img-wrap"> 
+				<a href="{% url 'productDetail' product.id %}" class="img-wrap">
 					<span class="topbar"> <b class="badge bg-success"> Offer </b> </span>
-					<img src=" {{ product.images.all.0.image.url }} "> 
+					<img src=" {{ product.images.all.0.image.url }} ">
 				</a>
 				<figcaption class="info-wrap border-top">
 					<a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
 					<a href="#" class="title text-truncate"> {{ product.name }} </a>
-					{% if product.category.name == 'Clothes and Wears' %} 
+					{% if product.category.name == 'Clothes and Wears' %}
 					<small class="text-muted">Sizes: S, M, XL</small>
 					{% else %}
 					<br>
@@ -105,7 +105,7 @@
 		        <div class="card-body">
 		          <h5 class="text-white">Quality sound</h5>
 		          <p class="text-white-50">All you need for music</p>
-		          <a class="btn btn-outline-light btn-sm" href="#">Learn more</a> 
+		          <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
 		        </div>
 		      </article>
 		    </div>
@@ -115,7 +115,7 @@
 		    <div class="card-body">
 		      <h5 class="text-white">Buy 2 items, With special gift</h5>
 		      <p class="text-white-50" style="max-width:400px;">Buy one, get one free marketing strategy helps your business improves the brand by sharing the profits </p>
-		      <a class="btn btn-outline-light btn-sm" href="#">Learn more</a> 
+		      <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
 		    </div>
 		  </article>
 
@@ -131,37 +131,37 @@
 
 	<header class="section-heading">
 		<h3 class="section-title">Recently viewed</h3>
-	</header> 
+	</header>
 
 	<div class="row gy-3">
 		<div class="col-lg-2 col-md-4 col-4">
-			<a href="#" class="img-wrap"> 
-				<img height="200" width="200" class="img-thumbnail" src="images/items/1.jpg"> 
+			<a href="#" class="img-wrap">
+				<img height="200" width="200" class="img-thumbnail" src="images/items/1.jpg">
 			</a>
 		</div> <!-- col.// -->
 		<div class="col-lg-2 col-md-4 col-4">
-			<a href="#" class="img-wrap"> 
-				<img height="200" width="200" class="img-thumbnail" src="images/items/2.jpg"> 
+			<a href="#" class="img-wrap">
+				<img height="200" width="200" class="img-thumbnail" src="images/items/2.jpg">
 			</a>
 		</div> <!-- col.// -->
 		<div class="col-lg-2 col-md-4 col-4">
-			<a href="#" class="img-wrap"> 
-				<img height="200" width="200" class="img-thumbnail" src="images/items/3.jpg"> 
+			<a href="#" class="img-wrap">
+				<img height="200" width="200" class="img-thumbnail" src="images/items/3.jpg">
 			</a>
 		</div> <!-- col.// -->
 		<div class="col-lg-2 col-md-4 col-4">
-			<a href="#" class="img-wrap"> 
-				<img height="200" width="200" class="img-thumbnail" src="images/items/4.jpg"> 
+			<a href="#" class="img-wrap">
+				<img height="200" width="200" class="img-thumbnail" src="images/items/4.jpg">
 			</a>
 		</div> <!-- col.// -->
 		<div class="col-lg-2 col-md-4 col-4">
-			<a href="#" class="img-wrap"> 
-				<img height="200" width="200" class="img-thumbnail" src="images/items/5.jpg"> 
+			<a href="#" class="img-wrap">
+				<img height="200" width="200" class="img-thumbnail" src="images/items/5.jpg">
 			</a>
 		</div> <!-- col.// -->
 		<div class="col-lg-2 col-md-4 col-4">
-			<a href="#" class="img-wrap"> 
-				<img height="200" width="200" class="img-thumbnail" src="images/items/6.jpg"> 
+			<a href="#" class="img-wrap">
+				<img height="200" width="200" class="img-thumbnail" src="images/items/6.jpg">
 			</a>
 		</div> <!-- col.// -->
 	</div> <!-- row end.// -->
@@ -174,7 +174,7 @@
   <div class="container">
 	<article class="card p-3 p-lg-5">
 		<div class="row g-3">
-			<div class="col-lg-3 col-md-6">	
+			<div class="col-lg-3 col-md-6">
 			<figure class="icontext">
 				<div class="icon">
 					<span class="icon-sm bg-warning-light text-warning rounded">
@@ -187,7 +187,7 @@
 				</figcaption>
 			</figure> <!-- icontext // -->
 			</div><!-- col // -->
-			<div class="col-lg-3 col-md-6">	
+			<div class="col-lg-3 col-md-6">
 			<figure class="icontext">
 				<div class="icon">
 					<span class="icon-sm bg-warning-light text-warning rounded">
@@ -200,7 +200,7 @@
 				</figcaption>
 			</figure> <!-- icontext // -->
 			</div><!-- col // -->
-			<div class="col-lg-3 col-md-6">	
+			<div class="col-lg-3 col-md-6">
 			<figure class="icontext">
 				<div class="icon">
 					<span class="icon-sm bg-warning-light text-warning rounded">
@@ -213,7 +213,7 @@
 				</figcaption>
 			</figure> <!-- icontext // -->
 			</div> <!-- col // -->
-			<div class="col-lg-3 col-md-6">	
+			<div class="col-lg-3 col-md-6">
 			<figure class="icontext">
 				<div class="icon">
 					<span class="icon-sm bg-warning-light text-warning rounded">

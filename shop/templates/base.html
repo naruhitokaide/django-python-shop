@@ -54,12 +54,20 @@
 						<a href="#" class="btn btn-light">
 							<i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>
 						</a>
-						<a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light">
+						<a data-bs-toggle="offcanvas" href=" {% url 'cart_list' %} " class="btn btn-light">
 							<i class="fa fa-shopping-cart"></i>
                 <span class="ms-1">
-                  <div class="d-inline-flex" id="cart-qty">
-                    cart
-                  </div>
+                  {% with total_qty=cart|length %}
+                    {% if total_qty > 0 %}
+                      <div class="d-inline-flex" id="cart-qty">
+                        {{ total_qty }}
+                      </div>
+                    {% else %}
+                      <div class="d-inline-flex" id="cart-qty">
+                        0
+                      </div>
+                    {% endif %}
+                  {% endwith %}
                 </span>
 						</a>
 			        </div>
