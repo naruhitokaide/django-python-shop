@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load humanize %}
 {% block content %}
 
 <section class="bg-primary padding-y-sm">
@@ -91,7 +91,7 @@
             <div class="card-body">
                 <dl class="dlist-align">
                   <dt>Total price:</dt>
-                  <dd class="text-end"> $329.00</dd>
+                  <dd class="text-end"> ${{ cart.get_total_price|floatformat:2|intcomma }} </dd>
                 </dl>
                 <dl class="dlist-align">
                   <dt>Discount:</dt>

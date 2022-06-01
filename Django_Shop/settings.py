@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'users.apps.UsersConfig',
     'order.apps.OrderConfig',
+    'django.contrib.humanize',
 
     'debug_toolbar',
 ]
