@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
 from order.cart import Cart
 from shop.models import Product
@@ -17,3 +17,11 @@ def cart(request):
 def cart_list(request):
     cart = Cart(request)
     return render(request, 'cartList.html')
+
+def cart_remove(request):
+    cart = Cart(request)
+    if request.POST.get('action') == 'post':
+        product_id = request.POST.get('productid')
+        
+        cart.remove(product_id)
+        return JsonResponse({'Ok':'Status 200'})

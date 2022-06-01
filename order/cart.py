@@ -17,11 +17,16 @@ class Cart():
         product_id = product.id
         if str(product_id) not in self.cart:
             self.cart[product_id] = {'price':product.price, 'qty': product_qty}
-
         elif str(product_id) in self.cart:
             pass
         self.session.modified = True
 
+
+    def remove(self, product_id):
+        if product_id in self.cart:
+            print(type(product_id))
+            del self.cart[product_id]
+            self.save()
 
     def __iter__(self):
         product_ids = self.cart.keys()
@@ -44,3 +49,6 @@ class Cart():
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
 
+
+    def save(self):
+        self.session.modified = True

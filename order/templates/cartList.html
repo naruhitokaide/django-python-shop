@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
+
 {% block content %}
 
 <section class="bg-primary padding-y-sm">
@@ -51,8 +52,9 @@
                     </div>
                     <div class="col-lg col-sm-4">
                         <div class="float-lg-end">
-                            <a href="#" class="btn btn-light"> <i class="fa fa-heart"></i></a>
-                            <a href="#" class="btn btn-light text-danger"> Remove</a>
+                            <button type="submit" class="btn btn-light text-danger" id="remove-button" value="{{ item.product.id }}">
+                                Remove
+                            </button>
                         </div>
                     </div>
                 </article> <!-- row.// -->
@@ -206,4 +208,22 @@
     </div> <!-- container .//  -->
 </section>
 
+
+<script>
+    $(document).on('click', '#remove-button', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'remove' %}",
+            data: {
+                productid: $('#remove-button').val(),
+                csrfmiddlewaretoken: "{{csrf_token}}",
+                action: 'post'
+          },
+          success: function(json){
+            document.getElementById("cart-qty").innerHTML = json.qty
+          }
+        })
+    })
+</script>
 {% endblock content %}
