@@ -22,6 +22,5 @@ def cart_remove(request):
     cart = Cart(request)
     if request.POST.get('action') == 'post':
         product_id = request.POST.get('productid')
-        
         cart.remove(product_id)
-        return JsonResponse({'Ok':'Status 200'})
+        return JsonResponse({'qty': cart.__len__(), 'total_price':cart.get_total_price()})

@@ -25,7 +25,7 @@
             <div class="content-body">
                 <h4 class="card-title mb-4">Your shopping cart</h4>
                 {% for item in cart %}
-                <article class="row gy-3 mb-4">
+                <article data-index="{{ item.product.id }}" class="row gy-3 mb-4 cart-item">
                     <div class="col-lg-5">
                         <figure class="itemside me-lg-5">
                             <div class="aside"><img src="{{ item.product.images.all.0.image.url }}" class="img-sm img-thumbnail"></div>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-lg col-sm-4">
                         <div class="float-lg-end">
-                            <button type="submit" class="btn btn-light text-danger" id="remove-button" value="{{ item.product.id }}">
+                            <button type="submit" data-index="{{ item.product.id }}" class="btn btn-light text-danger remove-button" id="remove-button" value="{{ item.product.id }}">
                                 Remove
                             </button>
                         </div>
@@ -93,7 +93,7 @@
             <div class="card-body">
                 <dl class="dlist-align">
                   <dt>Total price:</dt>
-                  <dd class="text-end"> ${{ cart.get_total_price|floatformat:2|intcomma }} </dd>
+                  <dd class="text-end" id="total_price"> ${{ cart.get_total_price|floatformat:2|intcomma }} </dd>
                 </dl>
                 <dl class="dlist-align">
                   <dt>Discount:</dt>
@@ -210,20 +210,25 @@
 
 
 <script>
-    $(document).on('click', '#remove-button', function (e) {
+    // Delete Item
+    $(document).on('click', '.remove-button', function (e) {
         e.preventDefault();
+        var prodid = $(this).data('index');
         $.ajax({
             type: 'POST',
-            url: "{% url 'remove' %}",
+            url: '{% url "remove" %}',
             data: {
-                productid: $('#remove-button').val(),
-                csrfmiddlewaretoken: "{{csrf_token}}",
-                action: 'post'
-          },
-          success: function(json){
-            document.getElementById("cart-qty").innerHTML = json.qty
-          }
-        })
+              productid: $(this).data('index'),
+              csrfmiddlewaretoken: "{{csrf_token}}",
+              action: 'post'
+            },
+        success: function (json) {
+            $('.cart-item[data-index="' + prodid + '"]').remove();
+            document.getElementById('cart-qty').innerHTML = json.qty
+            document.getElementById('total_price').innerHTML = json.total_price
+        },
+            error: function (xhr, errmsg, err) {}
+      });
     })
 </script>
 {% endblock content %}
