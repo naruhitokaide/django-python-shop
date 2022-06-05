@@ -14,12 +14,14 @@ class Cart():
 
 
     def add(self, product, product_qty):
-        product_id = product.id
-        if str(product_id) not in self.cart:
+        product_id = str(product.id)
+        if product_id not in self.cart:
             self.cart[product_id] = {'price':product.price, 'qty': product_qty}
-        elif str(product_id) in self.cart:
-            pass
-        self.session.modified = True
+        # for updating product quantity
+        elif product_id in self.cart:
+            self.cart[product_id]['qty'] += product_qty
+            print(self.__len__())
+        self.save()
 
 
     def remove(self, product_id):

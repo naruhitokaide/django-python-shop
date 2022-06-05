@@ -97,16 +97,16 @@
                 </dl>
                 <dl class="dlist-align">
                   <dt>Discount:</dt>
-                  <dd class="text-end text-success"> - $60.00 </dd>
+                  <dd class="text-end text-success"> - $00.00 </dd>
                 </dl>
                 <dl class="dlist-align">
                   <dt>TAX:</dt>
-                  <dd class="text-end"> $14.00 </dd>
+                  <dd class="text-end"> $00.00 </dd>
                 </dl>
                 <hr>
                 <dl class="dlist-align">
                   <dt>Total:</dt>
-                  <dd class="text-end text-dark h5"> $357.90 </dd>
+                  <dd class="text-end text-dark h5" id="final_price"> ${{ cart.get_total_price|floatformat:2|intcomma }} </dd>
                 </dl>
 
                 <div class="d-grid gap-2 my-3">
@@ -226,6 +226,7 @@
             $('.cart-item[data-index="' + prodid + '"]').remove();
             document.getElementById('cart-qty').innerHTML = json.qty
             document.getElementById('total_price').innerHTML = json.total_price
+            document.getElementById('final_price').innerHTML = json.total_price
         },
             error: function (xhr, errmsg, err) {}
       });
