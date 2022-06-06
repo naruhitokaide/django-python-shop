@@ -1,5 +1,7 @@
-from . models import Brand, Category, Product
 from django.shortcuts import render
+
+from . models import Brand, Category, Product
+from order.cart import Cart
 
 
 def home(request):
@@ -23,9 +25,11 @@ def product_list(request):
 
 def productdetail(request, id):
     product = Product.objects.get(pk = id)
+    cart = Cart(request)
     context = {
         'product':product,
-        'similar' : Product.objects.filter(category = product.category)
+        'similar' : Product.objects.filter(category = product.category),
+        'qty' : cart.single_qty(product.id)
     }
     print(product.images.all())
     return render(request, 'detailVIew.html', context)

@@ -1,5 +1,6 @@
 from decimal import Decimal
 from django.contrib.sessions.models import Session
+from requests import request, session
 
 from shop.models import Product
 
@@ -17,7 +18,7 @@ class Cart():
         product_id = str(product.id)
         if product_id not in self.cart:
             self.cart[product_id] = {'price':product.price, 'qty': product_qty}
-        # for updating product quantity
+        # for updating product quantity in session
         elif product_id in self.cart:
             self.cart[product_id]['qty'] += product_qty
             print(self.__len__())
@@ -50,6 +51,14 @@ class Cart():
 
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['qty'] for item in self.cart.values())
+
+
+    def single_qty(self, product_id):
+        self.product_id = str(product_id)
+        if self.product_id in self.cart:
+            return self.cart[self.product_id]['qty']
+        else:
+            return 0
 
 
     def save(self):
