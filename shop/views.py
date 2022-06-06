@@ -1,8 +1,5 @@
 from . models import Brand, Category, Product
-from django.views.generic import DetailView
-from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
@@ -28,9 +25,8 @@ def productdetail(request, id):
     product = Product.objects.get(pk = id)
     context = {
         'product':product,
-        'similar' : Product.objects.filter(category = product.category) 
+        'similar' : Product.objects.filter(category = product.category)
     }
     print(product.images.all())
     return render(request, 'detailVIew.html', context)
-    
-    
+
